@@ -1,0 +1,75 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { Locale } from '../i18n/translations';
+import { t } from '../i18n/translations';
+import '../styles/global.css';
+
+interface Props {
+  locale: Locale;
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+  schema?: object;
+}
+
+const { locale, title, description, ogImage, canonicalUrl, schema } = Astro.props;
+const i18n = t(locale);
+const pageTitle = title || i18n.site.title;
+const pageDescription = description || i18n.site.description;
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang={i18n.lang} dir={i18n.dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+    <link rel="alternate" hreflang="fr" href={`${base}/`} />
+    <link rel="alternate" hreflang="en" href={`${base}/en/`} />
+    <link rel="alternate" hreflang="x-default" href={`${base}/`} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:locale" content={locale === 'fr' ? 'fr_FR' : 'en_GB'} />
+    <meta property="og:locale:alternate" content={locale === 'fr' ? 'en_GB' : 'fr_FR'} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+
+    {schema && (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    )}
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-sage-600 focus:text-white focus:px-4 focus:py-2 focus:rounded">
+      {locale === 'fr' ? 'Aller au contenu principal' : 'Skip to main content'}
+    </a>
+    <Header locale={locale} />
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+  </body>
+</html>

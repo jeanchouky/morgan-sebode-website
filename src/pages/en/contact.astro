@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import { t } from '../../i18n/translations';
+
+const locale = 'en';
+const i18n = t(locale);
+const base = import.meta.env.BASE_URL;
+const prefix = `${base}/en`;
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${i18n.contact.pageTitle} — Morgan Sebode`}
+  description={i18n.contact.metaDescription}
+>
+  <section class="bg-gradient-to-br from-sage-50 to-warm-50 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl sm:text-5xl font-serif font-bold text-navy-900">{i18n.contact.pageTitle}</h1>
+      <p class="mt-4 text-lg text-navy-600 max-w-2xl">{i18n.contact.intro}</p>
+    </div>
+  </section>
+
+  <Section>
+    <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div class="space-y-8">
+        <div>
+          <h2 class="text-xl font-serif font-semibold text-navy-900 mb-2">{i18n.contact.locationTitle}</h2>
+          <p class="text-navy-600">{i18n.contact.locationText}</p>
+        </div>
+        <div>
+          <h2 class="text-xl font-serif font-semibold text-navy-900 mb-2">{i18n.contact.onlineTitle}</h2>
+          <p class="text-navy-600">{i18n.contact.onlineText}</p>
+        </div>
+        <div>
+          <h2 class="text-xl font-serif font-semibold text-navy-900 mb-2">{i18n.contact.emailTitle}</h2>
+          <a href="mailto:contact@morgansebode.com" class="text-sage-600 hover:text-sage-700 transition-colors text-lg">
+            {i18n.contact.email}
+          </a>
+        </div>
+        <div>
+          <h2 class="text-xl font-serif font-semibold text-navy-900 mb-2">{i18n.contact.hoursTitle}</h2>
+          <p class="text-navy-600">{i18n.contact.hoursText}</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 rounded-xl border border-sage-100 shadow-sm">
+        <h2 class="text-2xl font-serif font-bold text-navy-900 mb-6">{i18n.contact.formTitle}</h2>
+        <form action={`mailto:${i18n.contact.email}`} method="post" enctype="text/plain" class="space-y-5">
+          <div>
+            <label for="name" class="block text-sm font-medium text-navy-700 mb-1">{i18n.contact.formName}</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-2.5 border border-sage-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sage-500 focus:border-sage-500 transition-colors"
+            />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-navy-700 mb-1">{i18n.contact.formEmail}</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-2.5 border border-sage-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sage-500 focus:border-sage-500 transition-colors"
+            />
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-navy-700 mb-1">{i18n.contact.formMessage}</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="w-full px-4 py-2.5 border border-sage-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sage-500 focus:border-sage-500 transition-colors resize-y"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full px-6 py-3 bg-sage-600 text-white font-medium rounded-lg hover:bg-sage-700 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-500 focus:ring-offset-2"
+          >
+            {i18n.contact.formSubmit}
+          </button>
+          <p class="text-sm text-navy-500 text-center">{i18n.contact.formNote}</p>
+        </form>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

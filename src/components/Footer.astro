@@ -1,0 +1,57 @@
+---
+import type { Locale } from '../i18n/translations';
+import { t } from '../i18n/translations';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const i18n = t(locale);
+const base = import.meta.env.BASE_URL;
+const prefix = locale === 'fr' ? base : `${base}/en`;
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-navy-900 text-navy-200" role="contentinfo">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Brand -->
+      <div>
+        <h2 class="font-serif text-xl font-semibold text-white mb-2">Morgan Sebode</h2>
+        <p class="text-navy-300 text-sm">{i18n.footer.tagline}</p>
+        <p class="text-navy-400 text-sm mt-2">{i18n.footer.bacp}</p>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <h3 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">
+          {locale === 'fr' ? 'Liens rapides' : 'Quick links'}
+        </h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href={`${prefix}/about/`} class="text-navy-300 hover:text-white transition-colors">{i18n.nav.about}</a></li>
+          <li><a href={`${prefix}/services/`} class="text-navy-300 hover:text-white transition-colors">{i18n.nav.services}</a></li>
+          <li><a href={`${prefix}/booking/`} class="text-navy-300 hover:text-white transition-colors">{i18n.nav.booking}</a></li>
+          <li><a href={`${prefix}/contact/`} class="text-navy-300 hover:text-white transition-colors">{i18n.nav.contact}</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact info -->
+      <div>
+        <h3 class="font-semibold text-white mb-3 text-sm uppercase tracking-wider">Contact</h3>
+        <ul class="space-y-2 text-sm text-navy-300">
+          <li>Vannes, Bretagne, France</li>
+          <li>
+            <a href="mailto:contact@morgansebode.com" class="hover:text-white transition-colors">
+              contact@morgansebode.com
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-navy-700 mt-8 pt-8 text-center text-sm text-navy-400">
+      <p>{i18n.footer.copyright.replace('{year}', String(year))}</p>
+    </div>
+  </div>
+</footer>

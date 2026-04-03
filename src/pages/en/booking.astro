@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import { t } from '../../i18n/translations';
+
+const locale = 'en';
+const i18n = t(locale);
+const base = import.meta.env.BASE_URL;
+const prefix = `${base}/en`;
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${i18n.booking.pageTitle} — Morgan Sebode`}
+  description={i18n.booking.metaDescription}
+>
+  <section class="bg-gradient-to-br from-sage-50 to-warm-50 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl sm:text-5xl font-serif font-bold text-navy-900">{i18n.booking.pageTitle}</h1>
+      <p class="mt-4 text-lg text-navy-600 max-w-2xl">{i18n.booking.intro}</p>
+    </div>
+  </section>
+
+  <Section>
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl font-serif font-bold text-navy-900 mb-6">{i18n.booking.ctaTitle}</h2>
+      <p class="text-lg text-navy-600 mb-8">{i18n.booking.ctaText}</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="https://www.psychologue.net/cabinets/morgan-sebode"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center px-8 py-3.5 bg-sage-600 text-white font-medium rounded-lg hover:bg-sage-700 transition-colors text-lg focus:outline-none focus:ring-2 focus:ring-sage-500 focus:ring-offset-2"
+        >
+          {i18n.booking.ctaButton}
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+        <a
+          href="mailto:contact@morgansebode.com"
+          class="inline-flex items-center justify-center px-8 py-3.5 border-2 border-sage-300 text-sage-700 font-medium rounded-lg hover:bg-sage-50 transition-colors text-lg focus:outline-none focus:ring-2 focus:ring-sage-500 focus:ring-offset-2"
+        >
+          {i18n.booking.ctaEmail}
+        </a>
+      </div>
+    </div>
+  </Section>
+
+  <Section bg="sage">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-serif font-bold text-navy-900 mb-6">{i18n.booking.firstSession.title}</h2>
+      <p class="text-lg text-navy-700 leading-relaxed">{i18n.booking.firstSession.text}</p>
+    </div>
+  </Section>
+
+  <Section>
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-serif font-bold text-navy-900 mb-8">{i18n.booking.faq.title}</h2>
+      <div class="space-y-6">
+        {i18n.booking.faq.items.map(item => (
+          <details class="group bg-white rounded-xl border border-sage-100 overflow-hidden">
+            <summary class="flex items-center justify-between p-6 cursor-pointer text-lg font-medium text-navy-800 hover:text-sage-600 transition-colors">
+              {item.q}
+              <svg class="w-5 h-5 text-sage-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="px-6 pb-6 text-navy-600">{item.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../../components/Section.astro';
+import { t } from '../../i18n/translations';
+
+const locale = 'en';
+const i18n = t(locale);
+const base = import.meta.env.BASE_URL;
+const prefix = `${base}/en`;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Morgan Sebode',
+  jobTitle: 'Humanistic Counsellor',
+  description: i18n.about.metaDescription,
+  memberOf: {
+    '@type': 'Organization',
+    name: 'BACP — British Association for Counselling and Psychotherapy',
+  },
+  workLocation: {
+    '@type': 'Place',
+    address: { '@type': 'PostalAddress', addressLocality: 'Vannes', addressCountry: 'FR' },
+  },
+};
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${i18n.about.pageTitle} — Morgan Sebode`}
+  description={i18n.about.metaDescription}
+  schema={schema}
+>
+  <section class="bg-gradient-to-br from-sage-50 to-warm-50 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl sm:text-5xl font-serif font-bold text-navy-900">{i18n.about.pageTitle}</h1>
+    </div>
+  </section>
+
+  <Section>
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-serif font-bold text-navy-900 mb-8">{i18n.about.bioTitle}</h2>
+      <div class="space-y-6 text-lg text-navy-700 leading-relaxed">
+        <p>{i18n.about.bioP1}</p>
+        <p>{i18n.about.bioP2}</p>
+        <p>{i18n.about.bioP3}</p>
+      </div>
+    </div>
+  </Section>
+
+  <Section bg="sage">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-serif font-bold text-navy-900 mb-8">{i18n.about.qualTitle}</h2>
+      <ul class="space-y-4">
+        {i18n.about.quals.map(qual => (
+          <li class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-sage-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-lg text-navy-700">{qual}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </Section>
+
+  <Section>
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-serif font-bold text-navy-900 mb-8">{i18n.about.approachTitle}</h2>
+      <p class="text-lg text-navy-700 leading-relaxed">{i18n.about.approachText}</p>
+    </div>
+  </Section>
+
+  <Section bg="sage">
+    <div class="text-center">
+      <a
+        href={`${prefix}/booking/`}
+        class="inline-flex items-center justify-center px-8 py-3.5 bg-sage-600 text-white font-medium rounded-lg hover:bg-sage-700 transition-colors text-lg focus:outline-none focus:ring-2 focus:ring-sage-500 focus:ring-offset-2"
+      >
+        {i18n.hero.cta}
+      </a>
+    </div>
+  </Section>
+</BaseLayout>

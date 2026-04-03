@@ -103,24 +103,24 @@ export const translations = {
       intro: 'Voici quelques retours de personnes que j\'ai eu le privilège d\'accompagner.',
       items: [
         {
-          text: 'Morgan m\'a aidé à traverser une période extrêmement difficile de ma vie. Sa chaleur, son empathie et son professionnalisme m\'ont permis de me sentir en sécurité pour explorer des émotions que j\'avais enfouies depuis longtemps.',
-          author: 'Client·e en thérapie individuelle',
+          text: 'C\'est très précieux d\'avoir quelqu\'un qui écoute vraiment et qui se soucie de vous. Avec Morgan et sa bienveillance naturelle, je me suis senti·e en sécurité pour partager mes inquiétudes obsessionnelles et explorer des éléments traumatiques de mon passé. Cela m\'a aidé·e à tourner la page et à avancer.',
+          author: 'K. 42 ans',
         },
         {
-          text: 'Grâce à Morgan, mon fils a trouvé un espace où il pouvait enfin exprimer ce qu\'il ressentait. L\'approche adaptée aux enfants a fait toute la différence. Nous avons vu un vrai changement en quelques semaines.',
-          author: 'Parent d\'un enfant accompagné',
+          text: 'Il y avait beaucoup de choses que je ne pouvais pas dire à mes amis, mes parents ou mes professeurs. J\'ai enfin trouvé un adulte à qui je pouvais faire confiance pour parler de tout. Je ne me suis jamais senti·e jugé·e ou incompris·e par Morgan.',
+          author: 'B. 14 ans',
         },
         {
-          text: 'En tant que personne autiste, trouver un·e thérapeute qui comprend vraiment mes besoins a été transformateur. Morgan adapte ses séances avec sensibilité et respect, et je me sens enfin comprise dans le processus thérapeutique.',
-          author: 'Client·e autiste',
+          text: 'Je suis allé·e voir Morgan parce que je me sentais perdu·e et déprimé·e. Je savais que je n\'étais pas heureux·se mais je ne comprenais pas pourquoi ni comment aller mieux. Morgan m\'a aidé·e à mieux me comprendre, il m\'a aidé·e à changer de perspective et à trouver du sens.',
+          author: 'C. 24 ans',
         },
         {
-          text: 'La thérapie de couple avec Morgan nous a permis de retrouver le dialogue. Nous avions atteint un point où la communication semblait impossible, mais Morgan a su créer un espace neutre et bienveillant.',
-          author: 'Client·e en thérapie de couple',
+          text: 'J\'avais perdu mon père depuis un an. Je pensais que j\'allais bien mais ce n\'était clairement pas le cas. J\'étais de plus en plus déprimé·e et cela affectait ma carrière et ma famille. J\'ai travaillé avec Morgan et il m\'a guidé·e à travers mon deuil. Il m\'a aidé·e à accepter mes sentiments et à comprendre ma douleur.',
+          author: 'O. 30 ans',
         },
         {
-          text: 'Je recommande Morgan sans hésitation. Ses séances en ligne sont aussi efficaces qu\'en personne. Malgré la distance, j\'ai toujours senti une vraie connexion et un soutien authentique.',
-          author: 'Client·e en ligne (Royaume-Uni)',
+          text: 'J\'avais déjà vu des thérapeutes avant mais je n\'avais jamais eu l\'impression qu\'ils me comprenaient. J\'ai eu un vrai lien avec Morgan, je savais qu\'il comprenait mon monde.',
+          author: 'R. 17 ans',
         },
       ],
     },
@@ -288,24 +288,24 @@ export const translations = {
       intro: 'Here are some reflections from people I\'ve had the privilege of supporting.',
       items: [
         {
-          text: 'Morgan helped me through an incredibly difficult period of my life. Her warmth, empathy, and professionalism made me feel safe enough to explore emotions I had buried for a long time.',
-          author: 'Individual therapy client',
+          text: 'It is very precious to have someone who really listens and cares. With Morgan and his caring nature I felt safe sharing my obsessive worries and exploring traumatic elements of my past. It helped me to get closure and move forward',
+          author: 'K. 42yo',
         },
         {
-          text: 'Thanks to Morgan, my son found a space where he could finally express what he was feeling. The child-friendly approach made all the difference. We saw a real change within weeks.',
-          author: 'Parent of a child client',
+          text: 'There were lots of things I could not tell my friends, my parents or my teachers. I finally found an adult I could trust to talk about everything. I never felt judged or misunderstood by Morgan',
+          author: 'B. 14yo',
         },
         {
-          text: 'As an autistic person, finding a therapist who truly understands my needs has been transformative. Morgan adapts her sessions with sensitivity and respect, and I finally feel understood in the therapeutic process.',
-          author: 'Autistic client',
+          text: 'I went to see Morgan because I was feeling lost and depressed. I knew I was not happy but I could not understand why and how to get better. Morgan helped me to understand myself better, he helped me to change my perspective and find meaning',
+          author: 'C. 24yo',
         },
         {
-          text: 'Couple therapy with Morgan helped us find our way back to dialogue. We had reached a point where communication seemed impossible, but Morgan created a neutral and caring space.',
-          author: 'Couple therapy client',
+          text: 'I had lost my father for a year. I thought I was fine but clearly I was not. I was getting more and more depressed and it was affecting my career and my family. I worked with Morgan and he guided me through my grief. He helped me to accept my feelings and understand my pain',
+          author: 'O. 30yo',
         },
         {
-          text: 'I recommend Morgan without hesitation. Her online sessions are just as effective as in-person ones. Despite the distance, I always felt a genuine connection and authentic support.',
-          author: 'Online client (UK)',
+          text: 'I had seen counsellors before but I never felt they were getting me. I connected with Morgan, I knew he understood my world',
+          author: 'R. 17yo',
         },
       ],
     },

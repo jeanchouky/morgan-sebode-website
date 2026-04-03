@@ -1,41 +1,116 @@
 @import "tailwindcss";
 
 @theme {
-  --color-sage-50: #f6f7f4;
-  --color-sage-100: #e8ebe3;
-  --color-sage-200: #d1d7c7;
-  --color-sage-300: #b3bda3;
-  --color-sage-400: #94a37e;
-  --color-sage-500: #7a8b65;
-  --color-sage-600: #5f6e4e;
-  --color-sage-700: #4a5640;
-  --color-sage-800: #3d4636;
-  --color-sage-900: #343b2f;
+  --color-sage-50: var(--theme-sage-50, #f6f7f4);
+  --color-sage-100: var(--theme-sage-100, #e8ebe3);
+  --color-sage-200: var(--theme-sage-200, #d1d7c7);
+  --color-sage-300: var(--theme-sage-300, #b3bda3);
+  --color-sage-400: var(--theme-sage-400, #94a37e);
+  --color-sage-500: var(--theme-sage-500, #7a8b65);
+  --color-sage-600: var(--theme-sage-600, #5f6e4e);
+  --color-sage-700: var(--theme-sage-700, #4a5640);
+  --color-sage-800: var(--theme-sage-800, #3d4636);
+  --color-sage-900: var(--theme-sage-900, #343b2f);
 
-  --color-warm-50: #fdfbf7;
-  --color-warm-100: #f9f3e8;
-  --color-warm-200: #f2e4cc;
-  --color-warm-300: #e8d0a8;
-  --color-warm-400: #ddb882;
-  --color-warm-500: #d4a066;
-  --color-warm-600: #c4864a;
-  --color-warm-700: #a36a3d;
-  --color-warm-800: #855637;
-  --color-warm-900: #6d4730;
+  --color-warm-50: var(--theme-warm-50, #fdfbf7);
+  --color-warm-100: var(--theme-warm-100, #f9f3e8);
+  --color-warm-200: var(--theme-warm-200, #f2e4cc);
+  --color-warm-300: var(--theme-warm-300, #e8d0a8);
+  --color-warm-400: var(--theme-warm-400, #ddb882);
+  --color-warm-500: var(--theme-warm-500, #d4a066);
+  --color-warm-600: var(--theme-warm-600, #c4864a);
+  --color-warm-700: var(--theme-warm-700, #a36a3d);
+  --color-warm-800: var(--theme-warm-800, #855637);
+  --color-warm-900: var(--theme-warm-900, #6d4730);
 
-  --color-navy-50: #f4f6fa;
-  --color-navy-100: #e6eaf3;
-  --color-navy-200: #d3daea;
-  --color-navy-300: #b4c0db;
-  --color-navy-400: #8fa0c8;
-  --color-navy-500: #7385b8;
-  --color-navy-600: #606faa;
-  --color-navy-700: #545f9b;
-  --color-navy-800: #49507f;
-  --color-navy-900: #2d3352;
+  --color-navy-50: var(--theme-navy-50, #f4f6fa);
+  --color-navy-100: var(--theme-navy-100, #e6eaf3);
+  --color-navy-200: var(--theme-navy-200, #d3daea);
+  --color-navy-300: var(--theme-navy-300, #b4c0db);
+  --color-navy-400: var(--theme-navy-400, #8fa0c8);
+  --color-navy-500: var(--theme-navy-500, #7385b8);
+  --color-navy-600: var(--theme-navy-600, #606faa);
+  --color-navy-700: var(--theme-navy-700, #545f9b);
+  --color-navy-800: var(--theme-navy-800, #49507f);
+  --color-navy-900: var(--theme-navy-900, #2d3352);
 
   --font-sans: 'Source Sans 3', 'Source Sans Pro', system-ui, -apple-system, sans-serif;
   --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+}
+
+/* Theme A — Sage (default): sage green + warm beige + soft navy */
+/* Default values are already set above via fallbacks */
+
+/* Theme B — Ocean: deep teal + sandy white + coral accents */
+[data-theme="ocean"] {
+  --theme-sage-50: #f0fafa;
+  --theme-sage-100: #d4eded;
+  --theme-sage-200: #aadcdc;
+  --theme-sage-300: #7ec7c7;
+  --theme-sage-400: #52b0b0;
+  --theme-sage-500: #3d9696;
+  --theme-sage-600: #2f7a7a;
+  --theme-sage-700: #266060;
+  --theme-sage-800: #204e4e;
+  --theme-sage-900: #1a3f3f;
+
+  --theme-warm-50: #fefcf7;
+  --theme-warm-100: #faf4e8;
+  --theme-warm-200: #f3e5cc;
+  --theme-warm-300: #e9d1a8;
+  --theme-warm-400: #e0b882;
+  --theme-warm-500: #d6a066;
+  --theme-warm-600: #e07850;
+  --theme-warm-700: #c45a3a;
+  --theme-warm-800: #a04830;
+  --theme-warm-900: #7d3a28;
+
+  --theme-navy-50: #f1f5fa;
+  --theme-navy-100: #dfe8f3;
+  --theme-navy-200: #c4d5ea;
+  --theme-navy-300: #9db8da;
+  --theme-navy-400: #7098c6;
+  --theme-navy-500: #5580b4;
+  --theme-navy-600: #436898;
+  --theme-navy-700: #3a577e;
+  --theme-navy-800: #334968;
+  --theme-navy-900: #263550;
+}
+
+/* Theme C — Lavender: soft purple/lavender + cream + charcoal */
+[data-theme="lavender"] {
+  --theme-sage-50: #f7f5fb;
+  --theme-sage-100: #ece5f5;
+  --theme-sage-200: #d9cceb;
+  --theme-sage-300: #c1adde;
+  --theme-sage-400: #a88ecf;
+  --theme-sage-500: #9074be;
+  --theme-sage-600: #7a5daa;
+  --theme-sage-700: #654b8e;
+  --theme-sage-800: #533e74;
+  --theme-sage-900: #443560;
+
+  --theme-warm-50: #fdfcf8;
+  --theme-warm-100: #faf6ed;
+  --theme-warm-200: #f4ecda;
+  --theme-warm-300: #ecddbe;
+  --theme-warm-400: #e3cca0;
+  --theme-warm-500: #d9ba84;
+  --theme-warm-600: #c9a068;
+  --theme-warm-700: #a78254;
+  --theme-warm-800: #886a46;
+  --theme-warm-900: #6f573c;
+
+  --theme-navy-50: #f5f4f7;
+  --theme-navy-100: #e6e5ea;
+  --theme-navy-200: #d2d1d9;
+  --theme-navy-300: #b3b2be;
+  --theme-navy-400: #8f8e9e;
+  --theme-navy-500: #747384;
+  --theme-navy-600: #5e5d6e;
+  --theme-navy-700: #4e4d5c;
+  --theme-navy-800: #41404d;
+  --theme-navy-900: #2e2d38;
 }
 
 @layer base {

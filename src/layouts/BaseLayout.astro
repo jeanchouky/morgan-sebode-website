@@ -61,6 +61,14 @@ const base = import.meta.env.BASE_URL;
     {schema && (
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     )}
+
+    <!-- Apply theme before paint to prevent flash -->
+    <script is:inline>
+      (function() {
+        var t = localStorage.getItem('theme');
+        if (t && t !== 'sage') document.documentElement.setAttribute('data-theme', t);
+      })();
+    </script>
   </head>
   <body class="min-h-screen flex flex-col">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-sage-600 focus:text-white focus:px-4 focus:py-2 focus:rounded">

@@ -41,9 +41,15 @@ const navLinks = [
             {link.label}
           </a>
         ))}
+        <!-- Theme switcher -->
+        <div class="ml-3 flex items-center gap-1 border border-sage-200 rounded-full p-0.5" role="radiogroup" aria-label={locale === 'fr' ? 'Choisir un thème' : 'Choose theme'}>
+          <button data-set-theme="sage" class="theme-btn w-5 h-5 rounded-full bg-[#7a8b65] border-2 border-transparent transition-all" title="Sage" aria-label="Sage"></button>
+          <button data-set-theme="ocean" class="theme-btn w-5 h-5 rounded-full bg-[#3d9696] border-2 border-transparent transition-all" title="Ocean" aria-label="Ocean"></button>
+          <button data-set-theme="lavender" class="theme-btn w-5 h-5 rounded-full bg-[#9074be] border-2 border-transparent transition-all" title="Lavender" aria-label="Lavender"></button>
+        </div>
         <a
           href={langSwitchUrl}
-          class="ml-3 px-3 py-1.5 text-sm font-medium border border-sage-300 text-sage-700 hover:bg-sage-100 rounded-full transition-colors"
+          class="ml-2 px-3 py-1.5 text-sm font-medium border border-sage-300 text-sage-700 hover:bg-sage-100 rounded-full transition-colors"
           aria-label={i18n.nav.langLabel}
         >
           {i18n.nav.langSwitch}
@@ -51,7 +57,13 @@ const navLinks = [
       </div>
 
       <!-- Mobile menu button -->
-      <div class="flex items-center gap-3 lg:hidden">
+      <div class="flex items-center gap-2 lg:hidden">
+        <!-- Mobile theme switcher -->
+        <div class="flex items-center gap-1 border border-sage-200 rounded-full p-0.5" role="radiogroup" aria-label={locale === 'fr' ? 'Choisir un thème' : 'Choose theme'}>
+          <button data-set-theme="sage" class="theme-btn w-4 h-4 rounded-full bg-[#7a8b65] border-2 border-transparent transition-all" title="Sage" aria-label="Sage"></button>
+          <button data-set-theme="ocean" class="theme-btn w-4 h-4 rounded-full bg-[#3d9696] border-2 border-transparent transition-all" title="Ocean" aria-label="Ocean"></button>
+          <button data-set-theme="lavender" class="theme-btn w-4 h-4 rounded-full bg-[#9074be] border-2 border-transparent transition-all" title="Lavender" aria-label="Lavender"></button>
+        </div>
         <a
           href={langSwitchUrl}
           class="px-2.5 py-1 text-sm font-medium border border-sage-300 text-sage-700 hover:bg-sage-100 rounded-full transition-colors"
@@ -106,5 +118,34 @@ const navLinks = [
     menu?.classList.toggle('hidden');
     iconOpen?.classList.toggle('hidden');
     iconClose?.classList.toggle('hidden');
+  });
+
+  // Theme switcher
+  function setTheme(theme: string) {
+    if (theme === 'sage') {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+    localStorage.setItem('theme', theme);
+    // Update active indicator on buttons
+    document.querySelectorAll('.theme-btn').forEach(b => {
+      const isActive = b.getAttribute('data-set-theme') === theme;
+      b.classList.toggle('border-navy-900', isActive);
+      b.classList.toggle('border-transparent', !isActive);
+      b.classList.toggle('scale-110', isActive);
+    });
+  }
+
+  // Apply saved theme
+  const saved = localStorage.getItem('theme') || 'sage';
+  setTheme(saved);
+
+  // Listen for clicks
+  document.querySelectorAll('.theme-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      const theme = b.getAttribute('data-set-theme');
+      if (theme) setTheme(theme);
+    });
   });
 </script>
